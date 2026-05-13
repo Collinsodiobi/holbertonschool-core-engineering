@@ -1,17 +1,15 @@
 #!/usr/bin/env python3
-
-
 def safe_print_list_integers(my_list=[], x=0):
-    count = 0
+    nb = 0
 
     for i in range(x):
         try:
-            item = my_list[i]
-            if isinstance(item, int):
-                print("{:d}".format(item), end="")
-                count += 1
-        except IndexError:
-            break
+            print("{:d}".format(my_list[i]), end="")
+            nb += 1
+        except ValueError:
+            continue
+        except TypeError:
+            continue
 
     print()
-    return count
+    return nb
