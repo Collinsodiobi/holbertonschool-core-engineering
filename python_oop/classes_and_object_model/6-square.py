@@ -9,41 +9,42 @@ class Square:
         self.size = size
         self.position = position
 
-    # -------- size --------
     @property
     def size(self):
+        """Gets the size of the square."""
         return self.__size
 
     @size.setter
     def size(self, value):
+        """Sets the size with validation."""
         if not isinstance(value, int):
             raise TypeError("size must be an integer")
         if value < 0:
             raise ValueError("size must be >= 0")
         self.__size = value
 
-    # -------- position --------
     @property
     def position(self):
+        """Gets the position of the square."""
         return self.__position
 
     @position.setter
     def position(self, value):
+        """Sets the position with validation."""
         if (
             not isinstance(value, tuple)
             or len(value) != 2
             or not all(isinstance(n, int) and n >= 0 for n in value)
         ):
-            raise TypeError("position must be a tuple of 2 positive integer")
+            raise TypeError("position must be a tuple of 2 positive integers")
         self.__position = value
 
-    # -------- NEW: area --------
     def area(self):
         """Returns the area of the square."""
         return self.__size * self.__size
 
-    # -------- printing --------
     def my_print(self):
+        """Prints the square using '#' characters."""
         if self.__size == 0:
             print("")
             return
@@ -54,8 +55,8 @@ class Square:
         for _ in range(self.__size):
             print(" " * self.__position[0] + "#" * self.__size)
 
-    # -------- string representation --------
     def __str__(self):
+        """Returns string representation of the square."""
         if self.__size == 0:
             return ""
 
