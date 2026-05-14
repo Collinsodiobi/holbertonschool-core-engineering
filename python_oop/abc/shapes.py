@@ -49,7 +49,7 @@ class Rectangle(Shape):
 
     def perimeter(self):
         """Return perimeter of rectangle."""
-        return 2 * (abs(self.width) + abs(self.height))
+        return 2 * (self.width + self.height)
 
 
 def shape_info(shape):
